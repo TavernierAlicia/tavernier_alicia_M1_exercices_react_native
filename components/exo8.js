@@ -46,7 +46,7 @@ export default class Exo8 extends React.Component {
     const Item = ({item}) => {
 
       return (
-        <View style={styles.item} key={item.index.toString()}>
+        <View style={styles.item} key={item.index}>
           <Text>{item.name}</Text>
         </View>
       );
