@@ -15,7 +15,7 @@ import Exo7 from './components/exo7.js';
 import Exo8 from './components/exo8.js';
 import Exo9 from './components/exo9.js';
 import Exo10 from './components/exo10.js';
-// import Exo11 from './components/exo11.js';
+import Exo11 from './components/exo11.js';
 import Exo12 from './components/exo12.js';
 
 // https://github.com/react-navigation/react-navigation/issues/456#issuecomment-463164429
@@ -117,12 +117,12 @@ const Routes = {
       title: "Fichiers multiples",
   	   numExo: 10
   },
-  // // Exo 11
-  // "ComponentClass": {
-  //     screen: Exo11,
-  //     title: "Composant class",
-  // 	   numExo: 11
-  // },
+  // Exo 11
+  "ComponentClass": {
+      screen: Exo11,
+      title: "Composant class",
+  	   numExo: 11
+  },
 
   // Exo 12
   // "Lifecycle": {

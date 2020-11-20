@@ -7,7 +7,7 @@ export default class MyButton extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: props.title }
+    this.state = { title: props.title, fn : props.fn || (_ => {})}
   }
 
 
@@ -39,7 +39,7 @@ export default class MyButton extends React.Component {
     });
 
     return (
-      <TouchableOpacity style={styles.btn} >
+      <TouchableOpacity style={styles.btn} onPress={this.state.fn} >
         <Text
           style={styles.btnText}
         >{this.state.title}</Text>
