@@ -6,7 +6,7 @@ export default class Exo4 extends React.Component {
     // instance
     constructor(props) {
         super(props)
-        this.state = {pressed: 0}
+        this.state = { pressed: 0 }
     }
 
     // set title
@@ -18,16 +18,16 @@ export default class Exo4 extends React.Component {
 
     // oninit
     componentDidMount() {
-        this.setState({pressed: 0})
+        this.setState({ pressed: 0 })
     }
 
     // onclose
     componentWillUnmount() {
-        this.setState({pressed: 0})
+        this.setState({ pressed: 0 })
     }
 
     pressMore() {
-        this.setState({pressed: this.state.pressed + 1})
+        this.setState({ pressed: this.state.pressed + 1 })
     }
 
     // render
@@ -35,7 +35,7 @@ export default class Exo4 extends React.Component {
 
 
         const styles = StyleSheet.create({
-			container: {
+            container: {
                 flex: 1,
                 alignItems: 'center',
                 flexDirection: 'column'
@@ -48,7 +48,7 @@ export default class Exo4 extends React.Component {
             },
             btnText: {
                 alignItems: "center",
-				justifyContent: 'center',
+                justifyContent: 'center',
                 flex: 1,
             }
         });
@@ -68,4 +68,3 @@ export default class Exo4 extends React.Component {
 
     }
 }
-  

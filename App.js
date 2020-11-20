@@ -14,7 +14,7 @@ import Exo6 from './components/exo6.js';
 import Exo7 from './components/exo7.js';
 import Exo8 from './components/exo8.js';
 import Exo9 from './components/exo9.js';
-// import Exo10 from './components/exo10.js';
+import Exo10 from './components/exo10.js';
 // import Exo11 from './components/exo11.js';
 import Exo12 from './components/exo12.js';
 
@@ -111,12 +111,12 @@ const Routes = {
       title: "Utiliser une API / service",
   	   numExo: 9
   },
-  // // Exo 10
-  // "MultipleFiles": {
-  //     screen: Exo10,
-  //     title: "Fichiers multiples",
-  // 	   numExo: 10
-  // },
+  // Exo 10
+  "MultipleFiles": {
+      screen: Exo10,
+      title: "Fichiers multiples",
+  	   numExo: 10
+  },
   // // Exo 11
   // "ComponentClass": {
   //     screen: Exo11,

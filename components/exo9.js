@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, FlatList } from 'react-native';
 
-export default class Exo8 extends React.Component {
+export default class Exo9 extends React.Component {
 
   // instance
   constructor(props) {
