@@ -12,7 +12,7 @@ import Exo4 from './components/exo4.js';
 import Exo5 from './components/exo5.js';
 import Exo6 from './components/exo6.js';
 import Exo7 from './components/exo7.js';
-// import Exo8 from './components/exo8.js';
+import Exo8 from './components/exo8.js';
 // import Exo9 from './components/exo9.js';
 // import Exo10 from './components/exo10.js';
 // import Exo11 from './components/exo11.js';
@@ -99,12 +99,12 @@ const Routes = {
       title: "Construire un formulaire",
   	   numExo: 7
   },
-  // // Exo 8
-  // "List": {
-  //     screen: Exo8,
-  //     title: "Liste",
-  // 	   numExo: 8
-  // },
+  // Exo 8
+  "List": {
+      screen: Exo8,
+      title: "Liste",
+  	   numExo: 8
+  },
   // // Exo 9
   // "API": {
   //     screen: Exo9,    
