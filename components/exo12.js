@@ -1,79 +1,73 @@
 import React from 'react';
-import { Text, View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import MyButton from './myButton';
 
 export default class Exo12 extends React.Component {
 
-    constructor (props) {
-        super(props)
+  // instance
+  constructor(props) {
+    super(props)
+    this.state = { pressed: 0 }
+  }
 
-        // Create list from routes list
-        this.state = {
-            routes: function() {
-                const routes = props.screenProps.routes;
-                const routesItem = [];  
-                for (let r in routes) {
-                    // if (r == 'Menu') continue;
-                    routesItem.push({id: r, title: routes[r].title, num: routes[r].numExo})
-                }
-                return routesItem;
-            }()
-        }
-    }
-
-    // Set title
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: navigation.getScreenProps().routes[navigation.state.routeName].title,
-        };
+  // set title
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getScreenProps().routes[navigation.state.routeName].title,
     };
+  };
 
-    openExo(routeId) {
-        this.props.navigation.navigate(routeId);
-    }
+  // oninit
+  componentDidMount() {
+    this.setState({ pressed: 0 })
+  }
 
+  // onclose
+  componentWillUnmount() {
+    this.setState({ pressed: 0 })
+  }
 
-    render() {
+  pressMore() {
+    this.setState({ pressed: this.state.pressed + 1 })
+  }
 
-        const Item = ({ item, onPress, style }) => (
-            <TouchableOpacity onPress={onPress} style={styles.item}>
-                <Text style={styles.title}>Exo {item.num}: {item.title}</Text>
-            </TouchableOpacity>
-        );
-
-        const renderItem = ({ item }) => {
-            return (
-                <Item
-                    item={item}
-                    onPress={() => this.openExo(item.id)}
-                />
-            );
-        };
+  // render
+  render() {
 
 
-        const styles = StyleSheet.create({
-            container: {
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        alignItems: 'center',
+        flexDirection: 'column'
+      },
+      btn: {
+        width: 150,
+        height: 50,
+        backgroundColor: '#fba',
+        marginVertical: 25
+      },
+      btnText: {
+        alignItems: "center",
+        justifyContent: 'center',
+        flex: 1,
+      }
+    });
 
-            },
-            item: {
-                padding: 20,
-                marginVertical: 8,
-                marginHorizontal: 16,
-            },
-            title: {
-                fontSize: 24,
-            },
-        });
 
+    return (
+      <View style={styles.container}>
+        <Text>You've pressed the buttons: {this.state.pressed} time(s).</Text>
 
-        return (
-            <View style={styles.container} >
-                <FlatList
-                    data={this.state.routes}
-                    renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
-                />
-            </View>
-        );
-    }
+        <MyButton title='Press me!' fn={() => this.pressMore()} />
+
+        {/* <TouchableOpacity style={styles.btn} onPress={() => this.pressMore()} >
+          <View style={styles.btnText}>
+            <Text>Press me</Text>
+          </View>
+        </TouchableOpacity> */}
+      </View>
+    );
+
+  }
 }
-  

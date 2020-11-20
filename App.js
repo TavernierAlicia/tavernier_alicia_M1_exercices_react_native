@@ -4,6 +4,7 @@ import { createAppContainer, NavigationProvider } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Footer from './components/footer.js';
+import Menu from './components/menu.js';
 
 import Exo1 from './components/exo1.js';
 import Exo2 from './components/exo2.js';
@@ -22,115 +23,124 @@ import Exo12 from './components/exo12.js';
 const navigation = React.createRef()
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { isFooter: false };
-    this.handleNavigationChange = (prev, next, action) => {
-      const route = next.routes[next.index].routeName;
-      this.setState({ isFooter: route != 'Menu' })
-    }
+	constructor(props) {
+		super(props)
+		this.state = { isFooter: false };
+		this.handleNavigationChange = (prev, next, action) => {
+			const route = next.routes[next.index].routeName;
+			this.setState({ isFooter: route != 'Menu' })
+		}
 
-  }
+	}
 
 
-  render() {
+	render() {
 
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        justifyContent: 'center',
-        flexDirection: 'column',
-        height: "100%",
-        width: "100%",
-        overflow: "hidden"
-      }
-    });
+		const styles = StyleSheet.create({
+			container: {
+				flex: 1,
+				justifyContent: 'center',
+				flexDirection: 'column',
+				height: "100%",
+				width: "100%",
+				overflow: "hidden"
+			}
+		});
 
-    return (
-      <View style={styles.container}>
-        <AppContainer onNavigationStateChange={this.handleNavigationChange} screenProps={{ routes: Routes }} ref={navigation} />
-        {this.state.isFooter && <Footer navigation={navigation.current} />}
-      </View>
-    );
+		return (
+			<View style={styles.container}>
+				<AppContainer onNavigationStateChange={this.handleNavigationChange} screenProps={{ routes: Routes }} ref={navigation} />
+				{this.state.isFooter && <Footer navigation={navigation.current} />}
+			</View>
+		);
 
-  }
+	}
 }
 
 const Routes = {
-  // Exo 1
-  "HelloWorld": {
-    screen: Exo1,
-    title: "Hello World!",
-    numExo: 1
-  },
-  // Exo 2
-  "CaptureTaps": {
-    screen: Exo2,
-    title: "Capture taps",
-    numExo: 2
-  },
-  // // Exo 3
-  "ComponentCustom": {
-    screen: Exo3,
-    title: "Composant Custom",
-    numExo: 3
-  },
-  // // Exo 4
-  "StatesProps": {
-    screen: Exo4,
-    title: "Les states et les props",
-    numExo: 4
-  },
-  // // Exo 5
-  "Styling": {
-    screen: Exo5,
-    title: "Styling avec React Native",
-    numExo: 5
-  },
-  // // Exo 6
-  "Scrollable": {
-    screen: Exo6,
-    title: "Contenu Scrollable",
-    numExo: 6
-  },
-  // Exo 7
-  "Form": {
-      screen: Exo7,
-      title: "Construire un formulaire",
-  	   numExo: 7
-  },
-  // Exo 8
-  "List": {
-      screen: Exo8,
-      title: "Liste",
-  	   numExo: 8
-  },
-  // Exo 9
-  "API": {
-      screen: Exo9,
-      title: "Utiliser une API / service",
-  	   numExo: 9
-  },
-  // Exo 10
-  "MultipleFiles": {
-      screen: Exo10,
-      title: "Fichiers multiples",
-  	   numExo: 10
-  },
-  // Exo 11
-  "ComponentClass": {
-      screen: Exo11,
-      title: "Composant class",
-  	   numExo: 11
-  },
+	// Exo 1
+	"HelloWorld": {
+		screen: Exo1,
+		title: "Hello World!",
+		numExo: 1
+	},
+	// Exo 2
+	"CaptureTaps": {
+		screen: Exo2,
+		title: "Capture taps",
+		numExo: 2
+	},
+	// // Exo 3
+	"ComponentCustom": {
+		screen: Exo3,
+		title: "Custom Component",
+		numExo: 3
+	},
+	// // Exo 4
+	"StatesProps": {
+		screen: Exo4,
+		title: "States and props",
+		numExo: 4
+	},
+	// // Exo 5
+	"Styling": {
+		screen: Exo5,
+		title: "Styling",
+		numExo: 5
+	},
+	// // Exo 6
+	"Scrollable": {
+		screen: Exo6,
+		title: "Scrollable content",
+		numExo: 6
+	},
+	// Exo 7
+	"Form": {
+		screen: Exo7,
+		title: "Make a form",
+		numExo: 7
+	},
+	// Exo 8
+	"List": {
+		screen: Exo8,
+		title: "List",
+		numExo: 8
+	},
+	// Exo 9
+	"API": {
+		screen: Exo9,
+		title: "Using API / service",
+		numExo: 9
+	},
+	// Exo 10
+	"MultipleFiles": {
+		screen: Exo10,
+		title: "Multiples files",
+		numExo: 10
+	},
+	// Exo 11
+	"ComponentClass": {
+		screen: Exo11,
+		title: "Component class",
+		numExo: 11
+	},
 
-  // Exo 12
-  // "Lifecycle": {
-  'Menu': {
-    screen: Exo12,
-    title: "Menu - Lifecycle",
-    numExo: 12
-  }
+	// Exo 12
+	"Lifecycle": {
+		screen: Exo12,
+		title: "Component lifecycle",
+		numExo: 12
+	},
+
+
+
+	// Exo 13
+	// "Lifecycle": {
+	'Menu': {
+		screen: Menu,
+		title: "Menu",
+		numExo: 13
+	}
 
 };
 
@@ -138,10 +148,10 @@ const Routes = {
 // https://reactnavigation.org/docs/4.x/
 
 const AppNavigator = createStackNavigator(Routes, {
-  initialRouteName: 'Menu',
-  defaultNavigationOptions: {
-    headerLeft: _ => { }
-  }
+	initialRouteName: 'Menu',
+	defaultNavigationOptions: {
+		headerLeft: _ => { }
+	}
 });
 
 const AppContainer = createAppContainer(AppNavigator);
