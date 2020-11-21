@@ -3,56 +3,52 @@ import { Button, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 export default class Exo2 extends React.Component {
 
-    // instance
-    constructor(props) {
-        super(props)
+	// instance
+	constructor(props) {
+		super(props);
+	}
 
-    }
+	// set title
+	static navigationOptions = ({ navigation }) => {
+		const routeInfo = navigation.getScreenProps().routes[navigation.state.routeName];
+		return {
+			title: "Exo " + routeInfo.numExo + ": " + routeInfo.title,
+		};
+	};
 
-    // set title
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: navigation.getScreenProps().routes[navigation.state.routeName].title,
-        };
-    };
+	// oninit
+	componentDidMount() {
 
-    // oninit
-    componentDidMount() {
+	}
 
-    }
+	// onclose
+	componentWillUnmount() {
 
-    // onclose
-    componentWillUnmount() {
+	}
 
-    }
+	clickAlert() {
+		return Alert.alert(
+			'Alert',
+			'Hello',
+			[
+				{ text: 'OK', onPress: () => { } }
+			],
+			{ cancelable: false }
+		);
+	}
 
-    clickAlert() {
-        return Alert.alert(
-            'Alert exo', 
-            'bonjour', 
-            [
-                { text: 'OK', onPress: () => {} }
-            ],
-            { cancelable: false }
-        );
-    }
+	// render
+	render() {
 
-    // render
-    render() {
+		const styles = StyleSheet.create({
 
-
-        const styles = StyleSheet.create({
-
-        });
+		});
 
 
-        return (
-            <TouchableOpacity>
-                <Button title="Click here" onPress={this.clickAlert} />
-            </TouchableOpacity>
-                
-        );
-
-    }
+		return (
+			<TouchableOpacity>
+				<Button title="Click here" onPress={ this.clickAlert } />
+			</TouchableOpacity>
+		);
+	}
 }
-  

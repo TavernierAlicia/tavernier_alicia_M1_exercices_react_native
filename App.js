@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
-import { createAppContainer, NavigationProvider } from 'react-navigation';
+import { StyleSheet, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Footer from './components/footer.js';
@@ -24,15 +24,13 @@ const navigation = React.createRef()
 
 export default class App extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = { isFooter: false };
 		this.handleNavigationChange = (prev, next, action) => {
 			const route = next.routes[next.index].routeName;
-			this.setState({ isFooter: route != 'Menu' })
+			this.setState({ isFooter: route != 'Menu' });
 		}
-
 	}
-
 
 	render() {
 
@@ -43,17 +41,16 @@ export default class App extends React.Component {
 				flexDirection: 'column',
 				height: "100%",
 				width: "100%",
-				overflow: "hidden"
+				overflow: "hidden",
 			}
 		});
 
 		return (
-			<View style={styles.container}>
-				<AppContainer onNavigationStateChange={this.handleNavigationChange} screenProps={{ routes: Routes }} ref={navigation} />
-				{this.state.isFooter && <Footer navigation={navigation.current} />}
+			<View style={ styles.container }>
+				<AppContainer onNavigationStateChange={ this.handleNavigationChange } screenProps={{ routes: Routes }} ref={ navigation } />
+				{ this.state.isFooter && <Footer navigation={ navigation.current } /> }
 			</View>
 		);
-
 	}
 }
 
@@ -62,86 +59,93 @@ const Routes = {
 	"HelloWorld": {
 		screen: Exo1,
 		title: "Hello World!",
-		numExo: 1
+		numExo: 1,
 	},
+
 	// Exo 2
 	"CaptureTaps": {
 		screen: Exo2,
 		title: "Capture taps",
-		numExo: 2
+		numExo: 2,
 	},
+
 	// // Exo 3
 	"ComponentCustom": {
 		screen: Exo3,
 		title: "Custom Component",
-		numExo: 3
+		numExo: 3,
 	},
+
 	// // Exo 4
 	"StatesProps": {
 		screen: Exo4,
 		title: "States and props",
-		numExo: 4
+		numExo: 4,
 	},
+
 	// // Exo 5
 	"Styling": {
 		screen: Exo5,
 		title: "Styling",
-		numExo: 5
+		numExo: 5,
 	},
+
 	// // Exo 6
 	"Scrollable": {
 		screen: Exo6,
 		title: "Scrollable content",
-		numExo: 6
+		numExo: 6,
 	},
+
 	// Exo 7
 	"Form": {
 		screen: Exo7,
 		title: "Make a form",
-		numExo: 7
+		numExo: 7,
 	},
+
 	// Exo 8
 	"List": {
 		screen: Exo8,
 		title: "List",
-		numExo: 8
+		numExo: 8,
 	},
+
 	// Exo 9
 	"API": {
 		screen: Exo9,
 		title: "Using API / service",
-		numExo: 9
+		numExo: 9,
 	},
+
 	// Exo 10
 	"MultipleFiles": {
 		screen: Exo10,
 		title: "Multiples files",
-		numExo: 10
+		numExo: 10,
 	},
+
 	// Exo 11
 	"ComponentClass": {
 		screen: Exo11,
 		title: "Component class",
-		numExo: 11
+		numExo: 11,
 	},
 
 	// Exo 12
 	"Lifecycle": {
 		screen: Exo12,
 		title: "Component lifecycle",
-		numExo: 12
+		numExo: 12,
 	},
-
-
 
 	// Exo 13
 	// "Lifecycle": {
 	'Menu': {
 		screen: Menu,
 		title: "Menu",
-		numExo: 13
+		numExo: 13,
 	}
-
 };
 
 

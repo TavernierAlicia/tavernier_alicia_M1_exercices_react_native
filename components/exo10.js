@@ -4,47 +4,44 @@ import MyButton from './myButton';
 
 export default class Exo10 extends React.Component {
 
-  // instance
-  constructor(props) {
-    super(props)
+	// instance
+	constructor(props) {
+		super(props);
+	}
 
-  }
+	// set title
+	static navigationOptions = ({ navigation }) => {
+		const routeInfo = navigation.getScreenProps().routes[navigation.state.routeName];
+		return {
+			title: "Exo " + routeInfo.numExo + ": " + routeInfo.title,
+		};
+	};
 
-  // set title
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: navigation.getScreenProps().routes[navigation.state.routeName].title,
-    };
-  };
+	// oninit
+	componentDidMount() {
 
-  // oninit
-  componentDidMount() {
+	}
 
-  }
+	// onclose
+	componentWillUnmount() {
 
-  // onclose
-  componentWillUnmount() {
+	}
 
-  }
+	// render
+	render() {
 
-  // render
-  render() {
+		const styles = StyleSheet.create({
+			container: {
+				flex: 1,
+				justifyContent: 'center',
+				alignItems: 'center',
+			},
+		});
 
-
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-    });
-
-    return (
-      <View style={styles.container} >
-        <MyButton title='the button' />
-      </View>
-    );
-
-  }
-
+		return (
+			<View style={ styles.container } >
+				<MyButton title='the button' />
+			</View>
+		);
+	}
 }

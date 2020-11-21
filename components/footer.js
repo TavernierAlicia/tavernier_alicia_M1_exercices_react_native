@@ -7,30 +7,27 @@ import { NavigationActions } from 'react-navigation';
 
 export default class Footer extends React.Component {
 
-    constructor (props) {
-        super(props)
-        this.navigation = props.navigation;
-    }
+	constructor(props) {
+		super(props);
+		this.navigation = props.navigation;
+	}
 
-    navigateTo(screen) {
-        this.navigation.dispatch(
-            NavigationActions.navigate({ routeName: screen })
-        )
-    }
-    
+	navigateTo(screen) {
+		this.navigation.dispatch(
+			NavigationActions.navigate({ routeName: screen })
+		)
+	}
 
-    render() {
 
-        return (
+	render() {
 
-            <Button  
-                title="Retour menu"
-                onPress={() => {
-                    this.navigateTo('Menu')
-                }} 
-            />
-        );
-
-    }
-
+		return (
+			<Button
+				title="Retour menu"
+				onPress={() => {
+					this.navigateTo('Menu')
+				}}
+			/>
+		);
+	}
 }
